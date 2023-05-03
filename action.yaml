@@ -33,16 +33,10 @@ runs:
         echo "Setting NPM package registry to ${{ inputs.REGISTRY_URL }}"
         
         # Server URL
-        echo "SERVER_URL<<EOF" >> $GITHUB_ENV
-        echo "${{ github.server_url }}" | base64 -w0 >> $GITHUB_ENV
-        echo "" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+        echo "SERVER_URL=$(echo ${{ github.server_url }} | base64 -w0)" >> $GITHUB_ENV
 
         # Repository ID
-        echo "REPO_ID<<EOF" >> $GITHUB_ENV
-        echo "${{ github.repository }}" | base64 -w0 >> $GITHUB_ENV
-        echo "" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+        echo "REPO_ID=$(echo ${{ github.repository }} | base64 -w0)" >> $GITHUB_ENV
 
         # Workflow details
         echo "WORKFLOW_DETAILS<<EOF" >> $GITHUB_ENV
