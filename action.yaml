@@ -24,6 +24,8 @@ inputs:
     default: 'https://npmjs.packj.dev'
     
 runs:
+  using: "composite"
+  
   steps:
     - name: Setup node and configure Packj Firewall
       uses: actions/setup-node@v3
