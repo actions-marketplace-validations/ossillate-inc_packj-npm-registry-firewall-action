@@ -34,7 +34,7 @@ runs:
         echo "Setting NPM package registry to ${{ inputs.REGISTRY_URL }}"
         
         # Server URL
-        echo "SERVER_URL=$(echo ${{ github.server_url }} | base64 -w0)" >> $GITHUB_ENV
+        echo "SERVER_URL=$(echo -n ${{ github.server_url }} | base64 -w0)" >> $GITHUB_ENV
 
         # Repository ID
         echo "REPO_ID<<EOF" >> $GITHUB_ENV
