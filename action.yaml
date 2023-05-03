@@ -57,4 +57,4 @@ runs:
         always-auth: true
         registry-url: ${{ inputs.REGISTRY_URL }}
       env:
-        NODE_AUTH_TOKEN: ${{ env.SERVER_URL }}-${{ env.REPO_ID }}-${{ env.WORKFLOW_DETAILS }}-${{ inputs.PACKJ_FIREWALL_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ env.SERVER_URL }}:${{ env.REPO_ID }}:${{ env.WORKFLOW_DETAILS }}:${{ inputs.PACKJ_FIREWALL_TOKEN }}
