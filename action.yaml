@@ -37,6 +37,8 @@ runs:
     - name: Configure Packj firewall
       shell: bash
       run: |
+        echo ~/.npmrc
         echo "Setting NPM package registry to ${{ inputs.REGISTRY_URL }}"
         echo "${{ inputs.REGISTRY_URL }}/:_authToken  "${{ github.repository }}:${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }}" | base64 > 
-        npm config set :${{ inputs.PACKJ_FIREWALL_TOKEN }}" 
+        npm config set :${{ inputs.PACKJ_FIREWALL_TOKEN }}"
+        echo ~/.npmrc
