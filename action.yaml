@@ -33,8 +33,10 @@ runs:
         node-version: ${{ inputs.NODE_VERSION }}
         always-auth: true
         registry-url: ${{ inputs.REGISTRY_URL }}
-      run: npm ci
-      run: npm test
+      shell: bash
+      run: |
+        npm ci
+        npm test
 
     - name: Setup firewall authentication
       shell: bash
