@@ -31,8 +31,11 @@ runs:
         node-version: ${{ inputs.NODE_VERSION }}
         always-auth: true
         registry-url: ${{ inputs.REGISTRY_URL }}
+      run: npm ci
+      run: npm test
+
+    - name: Setup firewall authentication
+      shell: bash
       run: |
-        npm ci
         echo "Setting NPM package registry to ${{ inputs.REGISTRY_URL }}"
         npm config set ${{ inputs.REGISTRY_URL }}/:_authToken  "${{ github.repository }}:${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }}:${{ inputs.PACKJ_FIREWALL_TOKEN }}" 
-        npm test
