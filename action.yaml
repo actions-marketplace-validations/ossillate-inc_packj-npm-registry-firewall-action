@@ -19,7 +19,7 @@ inputs:
     required: false
     default: 'node16'
   REGISTRY_URL:
-    description: URL to NPM registry (NOTE: no trailing slash)
+    description: URL to NPM registry (no trailing slash)
     required: false
     default: 'https://npmjs.packj.dev'
     
