@@ -17,7 +17,7 @@ inputs:
   NODE_VERSION:
     description: Node version to use
     required: false
-    default: 'node16'
+    default: '16'
   REGISTRY_URL:
     description: URL to NPM registry (no trailing slash)
     required: false
