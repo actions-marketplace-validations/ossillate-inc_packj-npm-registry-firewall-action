@@ -16,10 +16,10 @@ inputs:
     required: true
   NODE_VERSION:
     description:
-    default: 'node16'
+    default: node16
   REGISTRY_URL:
     description: URL to NPM registry (NOTE: no trailing slash)
-    default: 'https://npmjs.packj.dev'
+    default: https://npmjs.packj.dev
     
 runs:
   steps:
