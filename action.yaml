@@ -32,7 +32,7 @@ runs:
       run: |
         echo "Setting NPM package registry to ${{ inputs.REGISTRY_URL }}"
         echo "AUTH_TOKEN<<EOF" >> $GITHUB_ENV
-        echo  "${{ github.server_url }}:${{ github.repository }}:${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }}:${{ inputs.PACKJ_FIREWALL_TOKEN }}" | base64 -w0 >> $GITHUB_ENV
+        echo  "${{ github.server_url }}-${{ github.repository }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.sha }}-${{ inputs.PACKJ_FIREWALL_TOKEN }}" | base64 -w0 >> $GITHUB_ENV
         echo "" >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
   
