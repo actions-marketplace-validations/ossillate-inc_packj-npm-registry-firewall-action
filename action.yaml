@@ -27,14 +27,28 @@ runs:
   using: "composite"
   
   steps:
-    - name: Auth token
+    - name: Generate Auth token
       shell: bash
       run: |
         echo "Setting NPM package registry to ${{ inputs.REGISTRY_URL }}"
-        echo "AUTH_TOKEN<<EOF" >> $GITHUB_ENV
-        echo  "${{ github.server_url }}-${{ github.repository }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.sha }}-${{ inputs.PACKJ_FIREWALL_TOKEN }}" | base64 -w0 >> $GITHUB_ENV
+        
+        # Server URL
+        echo "SERVER_URL<<EOF" >> $GITHUB_ENV
+        echo "${{ github.server_url }}" | base64 -w0 >> $GITHUB_ENV
         echo "" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+
+        # Repository ID
+        echo "REPO_ID<<EOF" >> $GITHUB_ENV
+        echo "${{ github.repository }}" | base64 -w0 >> $GITHUB_ENV
+        echo "" >> $GITHUB_ENV
+
+        # Workflow details
+        echo "WORKFLOW_DETAILS<<EOF" >> $GITHUB_ENV
+        echo "${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }}" | base64 -w0 >> $GITHUB_ENV
+        echo "" >> $GITHUB_ENV
+        
+        # Auth token
+        echo "AUTH_TOKEN={{ env.SERVER_URL }}-{{ env.REPO_ID }}-{{ env.WORKFLOW_DETAILS }}-${{ inputs.PACKJ_FIREWALL_TOKEN }}" >> $GITHUB_ENV
   
     - name: Setup node
       uses: actions/setup-node@v3
