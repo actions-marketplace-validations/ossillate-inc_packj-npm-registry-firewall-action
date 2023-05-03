@@ -37,16 +37,10 @@ runs:
         echo "SERVER_URL=$(echo -n ${{ github.server_url }} | base64 -w0)" >> $GITHUB_ENV
 
         # Repository ID
-        echo "REPO_ID<<EOF" >> $GITHUB_ENV
-        echo "${{ github.repository }}" | base64 -w0 >> $GITHUB_ENV
-        echo "" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+        echo "REPO_ID=$(echo -n ${{ github.repository }} | base64 -w0)" >> $GITHUB_ENV
 
         # Workflow details
-        echo "WORKFLOW_DETAILS<<EOF" >> $GITHUB_ENV
-        echo "${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }}" | base64 -w0 >> $GITHUB_ENV
-        echo "" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+        echo "WORKFLOW_DETAILS=$(echo -n \"${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }}\" | base64 -w0)" >> $GITHUB_ENV
         
     - name: Setup node
       uses: actions/setup-node@v3
