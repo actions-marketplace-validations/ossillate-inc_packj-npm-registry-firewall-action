@@ -48,7 +48,7 @@ runs:
         echo "" >> $GITHUB_ENV
         
         # Auth token
-        echo "AUTH_TOKEN={{ env.SERVER_URL }}-{{ env.REPO_ID }}-{{ env.WORKFLOW_DETAILS }}-${{ inputs.PACKJ_FIREWALL_TOKEN }}" >> $GITHUB_ENV
+        echo "AUTH_TOKEN=${{ env.SERVER_URL }}-${{ env.REPO_ID }}-${{ env.WORKFLOW_DETAILS }}-${{ inputs.PACKJ_FIREWALL_TOKEN }}" >> $GITHUB_ENV
   
     - name: Setup node
       uses: actions/setup-node@v3
