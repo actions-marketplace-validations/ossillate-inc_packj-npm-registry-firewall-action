@@ -22,7 +22,7 @@ inputs:
   REGISTRY_URL:
     description: URL to NPM registry (no trailing slash)
     required: false
-    default: 'https://npmjs.packj.dev/-'
+    default: 'https://npmjs.packj.dev'
     
 runs:
   using: "composite"
