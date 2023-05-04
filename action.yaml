@@ -40,7 +40,7 @@ runs:
         echo "REPO_ID=$(echo -n ${{ github.repository }} | base64 -w0)" >> $GITHUB_ENV
 
         # Workflow details
-        echo "WORKFLOW_DETAILS=$(echo -n \"${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }}\" | base64 -w0)" >> $GITHUB_ENV
+        echo "WORKFLOW_DETAILS=$(echo -n ${{ github.run_id }}:${{ github.run_number }}:${{ github.sha }} | base64 -w0)" >> $GITHUB_ENV
         
     - name: Setup node
       uses: actions/setup-node@v3
