@@ -1,7 +1,7 @@
 
 # Action's main info
 name: "Packj NPM Registry Firewall Setup"
-description: 'Packj NPM Firewall blocks installation of vulnerable/abandonded/typo-squatted, & Solarwinds-like malicious open-source dependencies'
+description: 'Packj NPM Firewall blocks installation of vulnerable/abandonded/malicious open-source dependencies'
 
 # Action's author name
 author: "Ossillate, Inc."
