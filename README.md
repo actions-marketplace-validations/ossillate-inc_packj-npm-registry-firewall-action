@@ -1,13 +1,27 @@
 # packj-npm-registry-firewall-action
-Packj firewall for NPM registry
+Packj firewall for NPM registry will block the installation of any vulnerable, abandonded, typo-squatted, and ESLint-like malicious NPM dependency.
 
-*Note* you will have to create an account on https://packj.dev and obtain an authentication token.
+The screenshot below depcits how Packj Firewall in action. 
+
+<img src="https://packj.dev/static/img/example.svg" style="width:40%;height:40%;float:center;"></img>
+
+Simply, add the following snippet to your workflow (first step, before installing any NPM dependencies)
+
+```yaml
+# Setup Packj NPM Firewall by using this Github action    
+- name: Setup Packj NPM registry firewall
+uses: ossillate-inc/packj-npm-registry-firewall-action@v0.0.1-beta
+with:
+  PACKJ_FIREWALL_TOKEN: ${{ secrets.PACKJ_FIREWALL_TOKEN }}
+```
 
 ## Inputs
 
 - PACKJ_FIREWALL_TOKEN: auth token
 
-## Example use
+*Note* you will have to create an account on https://packj.dev and obtain an authentication token.
+
+## Detailed example usage
 
 ```yaml
 # This is a basic workflow to help you get started with Actions
