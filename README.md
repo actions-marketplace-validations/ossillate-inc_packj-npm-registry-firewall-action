@@ -11,7 +11,7 @@ Packj firewall for NPM registry
 
 ```yaml
 # This is a basic workflow to help you get started with Actions
-name: Packj NPM Registry Firewall Demo
+name: Packj NPM Registry Firewall
 
 # Controls when the workflow will run
 on:
